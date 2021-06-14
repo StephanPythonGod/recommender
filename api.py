@@ -30,7 +30,7 @@ def recommend():
     param = request.get_json()
     datapoint = recommender.encoding(param["products"])
     prediction = recommender.predict(reformat_datapoint(datapoint))
-    #recommender.save_new_datapoint(param)
+    recommender.save_new_datapoint(param["products"])
     return json.dumps(recommender.decoding(prediction).tolist())
 
 

@@ -66,7 +66,7 @@ class recommender:
         for i in datapoint:
             self.df = self.df.append({'Date': date.today(), "Customer_ID" : nr, "Product" : i},ignore_index=True)
 
-        self.df.to_csv("./data/dataset_group.csv")
+        self.df.to_csv("./data/dataset_group.csv", index=False,header=False)
 
         self.create_sparsity_matrix()
         pass
@@ -74,6 +74,8 @@ class recommender:
     def predict(self, datapoint, k = 5):
         #predict an input vector
         #INPUT : np.array.shape = (1, 38)
+        #print(f"Input: {datapoint}, {datapoint.shape}")
+        #print(f"Sparsity: {self.sparsity_matrix.head(2)}")
         similarity = cosine_similarity(self.sparsity_matrix, datapoint)
         index_list = np.flip(np.argsort(np.transpose(similarity)))
         similar_users = []

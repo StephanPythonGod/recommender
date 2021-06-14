@@ -1,12 +1,11 @@
 # Repository for recommender-api
 
-## Usage
+## Usage API
 
 Run in bash
 
 ```
-source venv/bin/activate
-python api.py
+pip install -r requirements.txt
 ```
 
 Now you can use the api under
