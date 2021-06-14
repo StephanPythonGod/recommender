@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import flask
 from os import path
 from recommender import recommender
@@ -5,8 +7,12 @@ import json
 import numpy as np
 
 from flask import request
+from flask_cors import CORS
 
 app = flask.Flask(__name__)
+
+CORS(app)
+
 app.config["DEBUG"] = True
 
 

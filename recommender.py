@@ -19,7 +19,7 @@ class recommender:
 
     def load_df(self):
         #Load the csv to df
-        self.df = pd.read_csv("/data/dataset_group.csv", header = None)
+        self.df = pd.read_csv("./data/dataset_group.csv", header = None)
         self.df.columns = ["Date", "Customer_ID", "Product"]
         pass
 
@@ -66,7 +66,7 @@ class recommender:
         for i in datapoint:
             self.df = self.df.append({'Date': date.today(), "Customer_ID" : nr, "Product" : i},ignore_index=True)
 
-        self.df.to_csv("/data/dataset_group.csv")
+        self.df.to_csv("./data/dataset_group.csv")
 
         self.create_sparsity_matrix()
         pass
