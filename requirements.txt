@@ -3,3 +3,4 @@ Flask-Cors==3.0.10
 numpy==1.20.3
 pandas==1.2.4
 sklearn
+gunicorn==19.9.0
